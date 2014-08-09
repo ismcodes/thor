@@ -1,7 +1,6 @@
 from flask import Flask, request, redirect
-
 import os, twilio.twiml, praw
-
+"""stuff"""
 app = Flask(__name__)
 r=praw.Reddit('reddit sms parser (j12coder)')
 def check_subreddit(body):
