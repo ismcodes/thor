@@ -1,13 +1,13 @@
 from flask import Flask, request, redirect
 import os, twilio.twiml, praw
-"""stuff"""
 app = Flask(__name__)
 r=praw.Reddit('reddit sms parser (j12coder)')
 def check_subreddit(body):
-	if len(body.split(" "))<2:
+	sp=body.split(" ")
+	if len(sp)<2:
 		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
-	subreddit=body.split(" ")[0]
-	num=body.split(" ")[1]
+	subreddit=sp[0]
+	num=sp[1]
 	try:
 		num=int(num)
 	except ValueError:
