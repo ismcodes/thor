@@ -22,7 +22,7 @@ def check_subreddit(body):
 			if sub.display_name.lower()==subreddit:
 				return get_posts(sub,num)
 	
-	for testpost in r.get_subreddit(subreddit):
+	for testpost in r.get_subreddit(subreddit).get_hot(limit=1):
 		return "INACTIVE: %s"%get_posts(r.get_subreddit(subreddit))
 	elif len(subs)>0:
 		return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
