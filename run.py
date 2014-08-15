@@ -21,12 +21,14 @@ def check_subreddit(body):
 		for sub in subs:
 			if sub.display_name.lower()==subreddit:
 				return get_posts(sub,num)
-		return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
+		
 	else:
 		for testpost in r.get_subreddit(subreddit):
 			return "INACTIVE: %s"%get_posts(r.get_subreddit(subreddit))
+		elif len(subs)>0:
+			return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
 		else:
-			return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
+			return 'Sorry, no subreddit found by that name.'
 
 def get_posts(sub,num):
 	#actual subreddit object
