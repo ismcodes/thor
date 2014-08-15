@@ -11,7 +11,7 @@ def check_subreddit(body):
 	try:
 		num=int(num)
 	except ValueError:
-		return 'Sorry, looks like you didn\'t supply a number after the subreddit name.'
+		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
 	if num>5:
 		return 'Hold on there, partner. That\'s a lot of data! Try keeping it down to no more than 5 posts at a time.'
 	if subreddit=="random":
