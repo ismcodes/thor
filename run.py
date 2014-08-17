@@ -37,6 +37,8 @@ def check_subreddit(body):
 			return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
 		if num>3:
 			return 'Uh oh. This could jam up the system; how about limiting it to the 3rd post?'
+		else if num<=0:
+			return 'Well, here are the 0 results you wanted!'
 		if subreddit=="random":
 			return get_post(r.get_subreddit(subreddit),num)
 		subs=r.search_reddit_names(subreddit)
@@ -48,11 +50,12 @@ def check_subreddit(body):
 		else:
 			return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
 
-
+def safe(s):
+	return str(s.encode("ascii", errors='ignore'))[2:-1]
 def get_post(sub,num):
 	sumstr=""
 	p=list(sub.get_hot(limit=num))[-1]
-	sumstr+="%s\nby %s %s pts %d coms\n\n%s"%(p.title, p.author, p.ups, len(p.comments),p.selftext)
+	sumstr+="%s\nby %s %s pts %d coms\n\n%s"%(safe(p.title), safe(p.author), p.ups, len(p.comments),safe(p.selftext))
 	sumstr+="%s\n\n"%str(p.short_link.replace("http://",""))
 	return sumstr
 def get_posts(sub,num):
@@ -62,7 +65,7 @@ def get_posts(sub,num):
 	for p in new_posts:
 		if p.title>45:
 			p.title=p.title[:43]+"..."
-		sumstr+="%s\nby %s %s pts %d coms\n"%(p.title, p.author, p.ups, len(p.comments))
+		sumstr+="%s\nby %s %s pts %d coms\n"%(safe(p.title), safe(p.author), p.ups, len(p.comments))
 		sumstr+="%s\n\n"%str(p.short_link.replace("http://",""))
 	return sumstr
 
