@@ -64,8 +64,7 @@ def safe(s):
 def get_post(sub,num):
 	sumstr=""
 	p=list(sub.get_hot(limit=num))[-1]
-	return str(p)
-	sumstr+="%s\nby %s %s pts %d coms\n\n%s"%(safe(p.title), p.author, p.ups, len(p.comments),safe(p.selftext))
+	sumstr+="%s\nby %s %s pts %d coms\n\n%s"%(safe(p.title), p.author, p.ups, len(p.comments),'safe(p.selftext)')
 	sumstr+="%s\n\n"%str(p.short_link.replace("http://",""))
 	return sumstr
 def get_posts(sub,num):
