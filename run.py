@@ -65,7 +65,7 @@ def get_posts(sub,num):
 	for p in new_posts:
 		if p.title>45:
 			p.title=p.title[:43]+"..."
-		sumstr+="%s\nby %s %s pts %d coms\n"%(safe(p.title), safe(p.author), p.ups, len(p.comments))
+		sumstr+="%s\nby %s %s pts %d coms\n"%(p.title, p.author, p.ups, len(p.comments))
 		sumstr+="%s\n\n"%str(p.short_link.replace("http://",""))
 	return sumstr
 
