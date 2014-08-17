@@ -12,6 +12,7 @@ def check_subreddit(body):
 		return pst()
 
 def ht:
+	return "post detected"
 	subreddit=sp[0]
 	num=sp[1]
 	try:
