@@ -1,4 +1,5 @@
-from flask import Flask, request, redirect
+from flask import Flask, request
+#, redirect
 import os, twilio.twiml, praw
 app = Flask(__name__)
 r=praw.Reddit('reddit sms parser (j12coder)')
@@ -7,11 +8,11 @@ def check_subreddit(body):
 	if len(sp)<2:
 		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'	
 	elif len(sp)==2:
-		return ht()
+		return ht(sp)
 	else:
-		return pst()
+		return pst(sp)
 
-def pst():
+def pst(sp):
 	subreddit=sp[0]
 	post=sp[1]
 	num=sp[2]
@@ -23,7 +24,7 @@ def pst():
 		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
 	if num>3:
 		return 'Uh oh. This could jam up the system; how about limiting it to the 3rd post?'
-	else if num<=0:
+	elif num<=0:
 		return 'Well, here are the 0 results you wanted!'
 	if subreddit=="random":
 		return get_post(r.get_subreddit(subreddit),num)
@@ -37,7 +38,7 @@ def pst():
 		return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
 
 
-def ht():
+def ht(sp):
 	return 'hot'
 	subreddit=sp[0]
 	num=sp[1]
