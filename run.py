@@ -39,7 +39,6 @@ def pst(sp):
 
 
 def ht(sp):
-	return 'hot'
 	subreddit=sp[0]
 	num=sp[1]
 	try:
