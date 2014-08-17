@@ -9,7 +9,8 @@ def check_subreddit(body):
 	elif len(sp)==2:
 		return ht()
 
-def ht:
+def ht():
+	return 'hot'
 	subreddit=sp[0]
 	num=sp[1]
 	try:
