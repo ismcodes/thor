@@ -32,7 +32,7 @@ def pst(sp):
 	if len(subs)>0:
 		for sub in subs:
 			if sub.display_name.lower()==subreddit:
-				return 'get_post(sub,num)'
+				return get_post(sub,num)
 		return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
 	else:
 		return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
@@ -60,20 +60,22 @@ def ht(sp):
 
 		
 def safe(s):
-	return str(s.encode("ascii", errors='ignore'))[2:-1]
+	return str(s.encode("ascii", errors='ignore'))
 def get_post(sub,num):
 	sumstr=""
 	p=list(sub.get_hot(limit=num))[-1]
-	sumstr+="%s\nby %s %s pts %d coms\n\n%s"%(safe(p.title), safe(p.author), p.ups, len(p.comments),safe(p.selftext))
+	return str(p)
+	sumstr+="%s\nby %s %s pts %d coms\n\n%s"%(safe(p.title), p.author, p.ups, len(p.comments),safe(p.selftext))
 	sumstr+="%s\n\n"%str(p.short_link.replace("http://",""))
 	return sumstr
 def get_posts(sub,num):
 	sumstr="Hot posts on reddit.com/r/%s:\n\n"%sub.display_name
 	new_posts=sub.get_hot(limit=num)
 	for p in new_posts:
+		p.title=safe(p.title)
 		if p.title>45:
 			p.title=p.title[:43]+"..."
-		sumstr+="%s\nby %s %s pts %d coms\n"%(safe(p.title), p.author, p.ups, len(p.comments))
+		sumstr+="%s\nby %s %s pts %d coms\n"%(p.title, p.author, p.ups, len(p.comments))
 		sumstr+="%s\n\n"%str(p.short_link.replace("http://",""))
 	return sumstr
 
