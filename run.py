@@ -6,50 +6,57 @@ def check_subreddit(body):
 	sp=body.split(" ")
 	if len(sp)<2:
 		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'	
-	if len(sp)==2:
-		subreddit=sp[0]
-		num=sp[1]
-		try:
-			num=int(num)
-		except ValueError:
-			return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
-		if num>3:
-			return 'Hold on there, partner. That\'s a lot of data! Try keeping it down to no more than 3 posts at a time.'
-		if subreddit=="random":
-			return get_posts(r.get_subreddit(subreddit),num)
-		subs=r.search_reddit_names(subreddit)
-		if len(subs)>0:
-			for sub in subs:
-				if sub.display_name.lower()==subreddit:
-					return get_posts(sub,num)
-			return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
-		else:
-			return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
+	elif len(sp)==2:
+		return ht()	
 	else:
-		subreddit=sp[0]
-		post=sp[1]
-		num=sp[2]
-		try:
-			num=int(num)
-		except ValueError:
-			return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
-		if post !='post':
-			return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
-		if num>3:
-			return 'Uh oh. This could jam up the system; how about limiting it to the 3rd post?'
-		else if num<=0:
-			return 'Well, here are the 0 results you wanted!'
-		if subreddit=="random":
-			return get_post(r.get_subreddit(subreddit),num)
-		subs=r.search_reddit_names(subreddit)
-		if len(subs)>0:
-			for sub in subs:
-				if sub.display_name.lower()==subreddit:
-					return get_post(sub,num)
-			return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
-		else:
-			return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
+		return pst()
 
+def ht:
+	subreddit=sp[0]
+	num=sp[1]
+	try:
+		num=int(num)
+	except ValueError:
+		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
+	if num>3:
+		return 'Hold on there, partner. That\'s a lot of data! Try keeping it down to no more than 3 posts at a time.'
+	if subreddit=="random":
+		return get_posts(r.get_subreddit(subreddit),num)
+	subs=r.search_reddit_names(subreddit)
+	if len(subs)>0:
+		for sub in subs:
+			if sub.display_name.lower()==subreddit:
+				return get_posts(sub,num)
+		return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
+	else:
+		return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
+
+def pst:
+	subreddit=sp[0]
+	post=sp[1]
+	num=sp[2]
+	try:
+		num=int(num)
+	except ValueError:
+		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
+	if post !='post':
+		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
+	if num>3:
+		return 'Uh oh. This could jam up the system; how about limiting it to the 3rd post?'
+	else if num<=0:
+		return 'Well, here are the 0 results you wanted!'
+	if subreddit=="random":
+		return get_post(r.get_subreddit(subreddit),num)
+	subs=r.search_reddit_names(subreddit)
+	if len(subs)>0:
+		for sub in subs:
+			if sub.display_name.lower()==subreddit:
+				return get_post(sub,num)
+		return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
+	else:
+		return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
+
+		
 def safe(s):
 	return str(s.encode("ascii", errors='ignore'))[2:-1]
 def get_post(sub,num):
