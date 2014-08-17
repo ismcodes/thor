@@ -65,10 +65,10 @@ def get_post(sub,num):
 	sumstr=""
 	p=list(sub.get_hot(limit=num))[-1]
 	if p.is_self:
-		sumstr+="%s\nby %s %s pts %d coms\n\n%s"%(safe(p.title), p.author, p.ups, len(p.comments),safe(p.selftext))
+		sumstr+="%s\nby %s %s pts %d coms\n\n%s\n"%(safe(p.title), p.author, p.ups, len(p.comments),safe(p.selftext))
 	else:
 		sumstr+="%s\nby %s %s pts %d coms\n"%(safe(p.title), p.author, p.ups, len(p.comments))	
-	sumstr+="%s\n\n"%str(p.short_link.replace("http://",""))
+	sumstr+="\n%s\n\n"%str(p.short_link.replace("http://",""))
 	return sumstr
 def get_posts(sub,num):
 	sumstr="Hot posts on reddit.com/r/%s:\n\n"%sub.display_name
