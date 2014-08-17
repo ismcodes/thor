@@ -1,5 +1,5 @@
 from flask import Flask, request
-#, redirect
+""", redirect"""
 import os, twilio.twiml, praw
 app = Flask(__name__)
 r=praw.Reddit('reddit sms parser (j12coder)')
@@ -19,11 +19,11 @@ def pst(sp):
 	try:
 		num=int(num)
 	except ValueError:
-		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
+		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython post 2'
 	if post !='post':
-		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
-	if num>3:
-		return 'Uh oh. This could jam up the system; how about limiting it to the 3rd post?'
+		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython post 2'
+	if num>5:
+		return 'Uh oh. This could jam up the system; how about limiting it to the 5th post?'
 	elif num<=0:
 		return 'Well, here are the 0 results you wanted!'
 	if subreddit=="random":
@@ -86,7 +86,7 @@ def hello_monkey():
 	msg=request.values.get('Body','Empty message?').lower()
 	resp = twilio.twiml.Response()
 	if msg=='wat' or msg=='what' or msg=='about' or msg=='help me' or msg=='hi' or msg=='hello':
-		resp.message("This is Isaac's (bit.ly/1pI0K9B) SMS Reddit parser application. \n Respond with the name of a subreddit and amount of results you want. Example: web_design 3 . put 'post' before the number to only get back the hot post with that ranking.")
+		resp.message("This is Isaac's (bit.ly/1pI0K9B) SMS Reddit parser application. \n Respond with the name of a subreddit and amount of results you want. Example: web_design 3 . put 'post' before the number to get back that specific post (ruby post 2) gives back 2nd post in /r/ruby.")
 	elif msg=="thanks" or msg=="thx" or msg=="thanx":
 		resp.message("No problem! Let me know your opinion at hi@isaacmoldofsky.com!")
 	elif msg=="this rocks" or msg=="this is great" or msg=="great":
