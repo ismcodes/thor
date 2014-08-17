@@ -10,7 +10,6 @@ def check_subreddit(body):
 		return ht()
 
 def ht:
-	return "hot detected"
 	subreddit=sp[0]
 	num=sp[1]
 	try:
