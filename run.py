@@ -13,30 +13,7 @@ def check_subreddit(body):
 		return pst(sp)
 
 def pst(sp):
-	subreddit=sp[0]
-	post=sp[1]
-	num=sp[2]
-	try:
-		num=int(num)
-	except ValueError:
-		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
-	if post !='post':
-		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
-	if num>3:
-		return 'Uh oh. This could jam up the system; how about limiting it to the 3rd post?'
-	elif num<=0:
-		return 'Well, here are the 0 results you wanted!'
-	if subreddit=="random":
-		return get_post(r.get_subreddit(subreddit),num)
-	subs=r.search_reddit_names(subreddit)
-	if len(subs)>0:
-		for sub in subs:
-			if sub.display_name.lower()==subreddit:
-				return get_post(sub,num)
-		return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
-	else:
-		return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
-
+	return 'post'
 
 def ht(sp):
 	subreddit=sp[0]
