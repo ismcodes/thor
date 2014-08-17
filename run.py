@@ -86,7 +86,7 @@ def hello_monkey():
 	msg=request.values.get('Body','Empty message?').lower()
 	resp = twilio.twiml.Response()
 	if msg=='wat' or msg=='what' or msg=='about' or msg=='help me' or msg=='hi' or msg=='hello':
-		resp.message("This is Isaac's (bit.ly/1pI0K9B) SMS Reddit parser application. \n Respond with the name of a subreddit and amount of results you want. Example: web_design 3 . put 'post' before the number to get back that specific post (ruby post 2) gives back 2nd post in /r/ruby.")
+		resp.message("bit.ly/1pI0K9B SMS Reddit parser. \n Txt subreddit name and # of results you want. Ex: science 3 . Put post before # to get back specific post Ex: ruby post 2")
 	elif msg=="thanks" or msg=="thx" or msg=="thanx":
 		resp.message("No problem! Let me know your opinion at hi@isaacmoldofsky.com!")
 	elif msg=="this rocks" or msg=="this is great" or msg=="great":
