@@ -1,8 +1,6 @@
 from flask import Flask, request
 """, redirect"""
 import os, twilio.twiml, praw
-import newrelic.agent
-newrelic.agent.initialize('newrelic.ini')
 app = Flask(__name__)
 r=praw.Reddit('reddit sms parser (j12coder)')
 def check_subreddit(body):
