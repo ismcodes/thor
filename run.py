@@ -13,6 +13,7 @@ def check_subreddit(body):
 		return pst(sp)
 
 def pst(sp):
+	return 'Sorry, folks, app\'s broken. Come back later!'
 	subreddit=sp[0]
 	post=sp[1]
 	num=sp[2]
