@@ -13,7 +13,6 @@ def check_subreddit(body):
 		return pst(sp)
 
 def pst(sp):
-	return 'Sorry, folks, app\'s broken. Come back later!'
 	subreddit=sp[0]
 	post=sp[1]
 	num=sp[2]
@@ -38,9 +37,22 @@ def pst(sp):
 	else:
 		return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
 
+# def fetch_sub(try_name,num,type):
+# 	subred=r.get_subreddit(try_name)
+# 	res=list(subred.get_hot(limit=num))
+# 	if len(res)==num:
+# 		if type=='posts':
+# 			return get_posts(subred,num)
+# 		else:
+# 			return get_post(subred,num)d   
+# 	else:
+# 		namez=list(r.search_reddit_names(try_name))
+# 		if len(namez)>0:
+# 			return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%namez[0].display_name
+# 		else:
+# 			return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migrated to a different name?'
 
 def ht(sp):
-	return 'Sorry, folks, app\'s broken. Come back later!'
 	subreddit=sp[0]
 	num=sp[1]
 	try:
@@ -58,7 +70,7 @@ def ht(sp):
 				return get_posts(sub,num)
 		return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s? Or, the sub could be inactive. Maybe it moved to a different name?'%subs[0].display_name
 	else:
-		return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migarted to a different name?'
+		return 'Sorry, no subreddit found by that name. The sub could be inactive, maybe it migrated to a different name?'
 
 		
 def safe(s):
