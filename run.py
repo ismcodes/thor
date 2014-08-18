@@ -39,6 +39,7 @@ def pst(sp):
 
 
 def ht(sp):
+	return 'Sorry, folks, app\'s broken. Come back later!'
 	subreddit=sp[0]
 	num=sp[1]
 	try:
