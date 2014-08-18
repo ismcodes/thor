@@ -39,7 +39,6 @@ def pst(sp):
 
 
 def ht(sp):
-	return 'hot posts'
 	subreddit=sp[0]
 	num=sp[1]
 	try:
@@ -47,7 +46,7 @@ def ht(sp):
 	except ValueError:
 		return 'Sorry, it seems like you didn\'t type the message right. Here\'s an example: LearnPython 2'
 	if num>3:
-		return 'Hold on there, partner. That\'s a lot of data! Try keeping it down to no more than 3 posts at a time.'
+		return 'Hold on there, that\'s a lot of data! Try keeping it down to no more than 3 posts at a time.'
 	if subreddit=="random":
 		return get_posts(r.get_subreddit(subreddit),num)
 	subs=r.search_reddit_names(subreddit)
