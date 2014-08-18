@@ -1,8 +1,8 @@
 from flask import Flask, request
 """, redirect"""
-import os, twilio.twiml, praw
+import os, twilio.twiml, praw, random
 app = Flask(__name__)
-r=praw.Reddit('reddit sms parser (j12coder)')
+r=praw.Reddit('reddit sms parser (j12coder) %d'%random.randint(1,100000))
 def check_subreddit(body):
 	sp=body.split(" ")
 	if len(sp)<2:
