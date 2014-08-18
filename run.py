@@ -91,6 +91,8 @@ def hello_monkey():
 		resp.message("No problem! Let me know your opinion at hi@isaacmoldofsky.com!")
 	elif msg=="this rocks" or msg=="this is great" or msg=="great":
 		resp.message("Thanks! Let me know your opinion at hi@isaacmoldofsky.com!")
+	elif msg=="keeping it alive!":
+		return
 	else:
 		resp.message(check_subreddit(msg))
 	return str(resp)
