@@ -10,3 +10,4 @@ requests==2.3.0
 six==1.7.3
 twilio==3.6.6
 update-checker==0.10
+coveralls=0.4.2

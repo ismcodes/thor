@@ -3,4 +3,7 @@ python:
   - "3.4"
 install:
   - pip install -r requirements.txt
-script: make test
+script:
+  coverage run tests.py test
+after_success:
+  coveralls
