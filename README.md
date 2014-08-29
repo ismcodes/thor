@@ -1,3 +1,4 @@
+[![Coverage Status](https://img.shields.io/coveralls/j12coder/thor.svg)](https://coveralls.io/r/j12coder/thor?branch=master)
 thor
 ====
 
