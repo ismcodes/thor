@@ -61,7 +61,7 @@ def format_posts(new_posts):
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey(test_thing=None):
 	#testing purposes
-	if test_thing is not none:
+	if test_thing is not None:
 		msg=test_thing
 	else:
 		msg=request.values.get('Body','Empty message?').lower()
