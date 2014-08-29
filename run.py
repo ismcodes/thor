@@ -32,7 +32,7 @@ def fetch_stuff(try_name,num,ttype):
 			return format_posts(res)
 		else:
 			return format_post(res[-1])
-	except praw.errors.RedirectException:
+	except:
 		namez=list(r.search_reddit_names(try_name))
 		if len(namez)>0:
 			return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s?'%namez[0].display_name
