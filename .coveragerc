@@ -1,2 +1,4 @@
 [report]
 omit = /home/*
+[run]
+data_file = .coverage
