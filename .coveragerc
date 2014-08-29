@@ -1,4 +1,6 @@
 [report]
-omit = /home/*
-[run]
-data_file = .coverage
+omit = 
+	*/Include/*
+	*/Lib/*
+	*/Scripts/*
+	*/venv/*
