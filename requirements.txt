@@ -13,7 +13,6 @@ markupsafe==0.23
 pastedeploy==1.5.2
 praw==2.1.18
 pygments==1.6
-pyramid-tm==0.7
 repoze.lru==0.6
 requests==2.3.0
 six==1.7.3
