@@ -1,5 +1,4 @@
 PyYAML==3.11
-SQLAlchemy==0.9.7
 SocksiPy-branch==1.01
 chameleon==2.16
 coverage==3.7.1
@@ -14,10 +13,6 @@ markupsafe==0.23
 pastedeploy==1.5.2
 praw==2.1.18
 pygments==1.6
-pyramid==1.5.1
-pyramid-chameleon==0.3
-pyramid-debugtoolbar==2.2
-pyramid-mako==1.0.2
 pyramid-tm==0.7
 repoze.lru==0.6
 requests==2.3.0
@@ -25,7 +20,6 @@ six==1.7.3
 transaction==1.4.3
 translationstring==1.1
 twilio==3.6.6
-unittest2py3k==0.5.1
 update-checker==0.10
 venusian==1.0
 waitress==0.8.9
