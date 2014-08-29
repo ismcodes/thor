@@ -60,8 +60,12 @@ def format_posts(new_posts):
 	return sumstr
 
 @app.route("/", methods=['GET', 'POST'])
-def hello_monkey():
-	msg=request.values.get('Body','Empty message?').lower()
+def hello_monkey(test_thing=None):
+	#testing purposes
+	if test_thing is not none:
+		msg=test_thing
+	else:
+		msg=request.values.get('Body','Empty message?').lower()
 	resp = twilio.twiml.Response()
 	if msg=='wat' or msg=='what' or msg=='about' or msg=='help me' or msg=='hi' or msg=='hello':
 		resp.message("bit.ly/1pI0K9B SMS Reddit parser. \n Txt subreddit name and # of results you want. Ex: science 3 . Put post before # to get back specific post Ex: ruby post 2")
