@@ -1,6 +1,2 @@
 [report]
-omit = 
-	*/Include/*
-	*/Lib/*
-	*/Scripts/*
-	*/venv/*
+omit = /home/*
