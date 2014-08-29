@@ -1,7 +1,7 @@
 import praw,requests
 from run import check_subreddit, hello_monkey
 r=praw.Reddit('thor testing file')
-for sub in ['basketball','nosleep','fifthworldproblems','funny','science','web_design']:
+for sub in ['learnpython','drums','nosleep','fifthworldproblems','funny','science','web_design']:
 	print(check_subreddit('%s 1'%sub))
 	print(check_subreddit('%s post 1'%sub))
 print('checking error cases')

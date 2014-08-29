@@ -25,15 +25,14 @@ def fetch_stuff(try_name,num,ttype):
 	elif num<=0:
 		return 'Well, here are the 0 results you wanted!'
 	subred=r.get_subreddit(try_name)
-	res=list(subred.get_hot(limit=num))
-	if len(res)==num:
+	try:
+		res=list(subred.get_hot(limit=num))
+	
 		if ttype=='posts':
 			return format_posts(res)
 		else:
 			return format_post(res[-1])
-	else:
-		if len(res)!=0:
-			return "There are not %d posts in that subreddit."%num
+	except praw.errors.RedirectException:
 		namez=list(r.search_reddit_names(try_name))
 		if len(namez)>0:
 			return 'Sorry, looks like I couldn\'t find that subreddit. Did you maybe mean reddit.com/r/%s?'%namez[0].display_name
