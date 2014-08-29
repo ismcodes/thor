@@ -1,2 +1,6 @@
-[run]
-source = thor_tests
+[report]
+omit = 
+	*/Include/*
+	*/Lib/*
+	*/Scripts/*
+	*/venv/*
