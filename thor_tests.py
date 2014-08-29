@@ -17,6 +17,6 @@ print(hello_monkey('wat'))
 print(hello_monkey('thanks'))
 print(hello_monkey('this rocks'))
 print(hello_monkey('keeping it alive!'))
-print(resp.message('hello 1'))
+print(hello_monkey('hello 1'))
 
 print('Done')
