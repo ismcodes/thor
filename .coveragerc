@@ -4,3 +4,5 @@ omit =
 	*/Lib/*
 	*/Scripts/*
 	*/venv/*
+	*/packages/*
+	*/site-packages/*
