@@ -53,7 +53,7 @@ def format_posts(new_posts):
 	sumstr="Hot posts on reddit.com/r/%s:\n\n"%new_posts[0].subreddit.display_name
 	for p in new_posts:
 		p.title=safe(p.title)
-		if p.title>45:
+		if len(p.title)>45:
 			p.title=p.title[:43]+"..."
 		sumstr+="%s\nby %s %s pts %d coms\n"%(p.title, p.author, p.ups, len(p.comments))
 		sumstr+="%s\n\n"%str(p.short_link.replace("http://",""))
